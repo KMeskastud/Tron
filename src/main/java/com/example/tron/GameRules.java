@@ -3,8 +3,6 @@ package com.example.tron;
 import java.util.List;
 
 public class GameRules {
-    //private List<PlayerHuman> humans;
-    //private List<PlayerAI> bots;
     private List<Player> players;
     private Map map;
 

@@ -45,13 +45,12 @@ public class WindowsMain  extends JFrame implements KeyListener{
                 state = "running";
                 while (state == "running")
                 {
-                    repaint();
                     rules.playerMovement();
-
+                    repaint();
                     if(rules.didSomeoneDie() != 0)
                         state = "over";
                     try {
-                        Thread.sleep(50);//reik pridet kintama gamespeed
+                        Thread.sleep(200);//reik pridet kintama gamespeed
                     } catch (InterruptedException e) {e.printStackTrace();}
                 }
                 repaint();
