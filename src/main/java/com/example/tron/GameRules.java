@@ -25,16 +25,11 @@ public class GameRules {
             player.behave();
     }
 
-    /*int didSomeoneDie()
+    int didSomeoneDie()
     {
-        for (PlayerHuman human: humans) {
-            if(human.getState() == "dead")
-                return human.getId();
-        }
-        for (PlayerAI bot: bots) {
-            if(bot.getState() == "dead")
-                return bot.getId();
-        }
+        for (Player player: players)
+            if (player.getState() == "dead")
+                return player.getId();
         return 0;
-    }*/
+    }
 }

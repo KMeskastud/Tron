@@ -4,7 +4,7 @@ public class PlayerAI extends Player {
 
     @Override
     public void behave() {
-        decideDirection();
+        changeDirection();
         switch (direction) {
             case "left": x -= 1; break;
             case "right": x += 1; break;
@@ -46,7 +46,7 @@ public class PlayerAI extends Player {
                 return y - i; return 0;
     }
 
-    private void decideDirection() {
+    private void changeDirection() {
         int dist = 0, currentDist = 0;
         String dir = direction;
 

@@ -22,21 +22,7 @@ public abstract class Player
     }
 
     public abstract void behave();
-    public abstract void changeDirection(int usercommand);
-    /*
-    void behave() {
-        switch (direction) {
-            case "left": x -= 1; break;
-            case "right": x += 1; break;
-            case "up": y -= 1; break;
-            case "down": y += 1; break;
-        }
-        if(map.getElement(x, y) != 0)
-            state = "dead";
-        else
-            map.drawOnMap(x, y, id);
-    }
-*/
+
     public int getX() {
         return x;
     }

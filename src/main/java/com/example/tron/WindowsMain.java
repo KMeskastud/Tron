@@ -82,7 +82,9 @@ public class WindowsMain  extends JFrame implements KeyListener{
         int userCommand = e.getKeyChar();
 
         for (Player player: players) {
-            player.changeDirection(userCommand);
+            if (player instanceof PlayerHuman human) {
+                human.changeDirection(userCommand);
+            }
         }
     }
 
