@@ -3,33 +3,29 @@ package com.example.tron;
 import java.util.List;
 
 public class GameRules {
-    private List<PlayerHuman> humans;
-    private List<PlayerAI> bots;
+    //private List<PlayerHuman> humans;
+    //private List<PlayerAI> bots;
+    private List<Player> players;
     private Map map;
 
-    public GameRules(Map map, List<PlayerHuman> humans, List<PlayerAI> bots) {
+    public GameRules(Map map, List<Player> players) {
         this.map = map;
-        this.humans = humans;
-        this.bots = bots;
+        this.players = players;
     }
 
     void addPlayers() {
-        humans.add(new PlayerHuman(3, 2, "down", "wasd", 2, map));
+        players.add(new PlayerHuman(3, 2, "down", "wasd", 2, map));
         //humans.add(new PlayerHuman(10, 2, "down", "ijkl", 3, map));
-        bots.add(new PlayerAI(10, 14, 3, map));
+        players.add(new PlayerAI(10, 14, 3, map));
     }
 
     void playerMovement() {
 
-        for (PlayerHuman human: humans)
-            human.behave();
-        for (PlayerAI bot: bots)
-        {
-            bot.behave();
-        }
+        for (Player player: players)
+            player.behave();
     }
 
-    int didSomeoneDie()
+    /*int didSomeoneDie()
     {
         for (PlayerHuman human: humans) {
             if(human.getState() == "dead")
@@ -40,5 +36,5 @@ public class GameRules {
                 return bot.getId();
         }
         return 0;
-    }
+    }*/
 }

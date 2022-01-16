@@ -1,6 +1,6 @@
 package com.example.tron;
 
-public class PlayerHuman extends Player implements behavior{
+public class PlayerHuman extends Player {
     private char up;
     private char down;
     private char left;
@@ -25,6 +25,7 @@ public class PlayerHuman extends Player implements behavior{
             direction = "down";
     }
 
+    @Override
     public void behave() {
         switch (direction) {
             case "left": x -= 1; break;

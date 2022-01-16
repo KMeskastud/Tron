@@ -14,10 +14,11 @@ import javax.swing.SwingUtilities;
 
 public class WindowsMain  extends JFrame implements KeyListener{
     private static final long serialVersionUID = 1L;
-    private List<PlayerHuman> humans = new ArrayList<>();
-    private List<PlayerAI> bots = new ArrayList<>();
+    //private List<PlayerHuman> humans = new ArrayList<>();
+    //private List<PlayerAI> bots = new ArrayList<>();
+    private List<Player> players = new ArrayList<>();
     private Map map = new Map();
-    private GameRules rules = new GameRules(map, humans, bots);
+    private GameRules rules = new GameRules(map, players);
     private WindowsRenderer renderer = new WindowsRenderer(map, rules);
     private String state = "nothing";
 
@@ -80,8 +81,8 @@ public class WindowsMain  extends JFrame implements KeyListener{
     public void keyPressed(KeyEvent e) {
         int userCommand = e.getKeyChar();
 
-        for (PlayerHuman human: humans) {
-            human.changeDirection(userCommand);
+        for (Player player: players) {
+            player.changeDirection(userCommand);
         }
     }
 

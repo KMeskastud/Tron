@@ -1,9 +1,10 @@
 package com.example.tron;
 
-public class PlayerAI extends Player implements behavior{
+public class PlayerAI extends Player {
 
+    @Override
     public void behave() {
-        changeDirection();
+        decideDirection();
         switch (direction) {
             case "left": x -= 1; break;
             case "right": x += 1; break;
@@ -45,7 +46,7 @@ public class PlayerAI extends Player implements behavior{
                 return y - i; return 0;
     }
 
-    private void changeDirection() {
+    private void decideDirection() {
         int dist = 0, currentDist = 0;
         String dir = direction;
 

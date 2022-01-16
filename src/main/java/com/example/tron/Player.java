@@ -1,6 +1,6 @@
 package com.example.tron;
 
-public class Player
+public abstract class Player
 {
     protected int x;
     protected int y;
@@ -20,7 +20,10 @@ public class Player
 
         map.drawOnMap(xStart, yStart, id);
     }
-/*
+
+    public abstract void behave();
+    public abstract void changeDirection(int usercommand);
+    /*
     void behave() {
         switch (direction) {
             case "left": x -= 1; break;
