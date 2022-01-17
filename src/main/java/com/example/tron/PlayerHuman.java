@@ -25,7 +25,7 @@ public class PlayerHuman extends Player {
             direction = "down";
     }
 
-    @Override
+    /* @Override
     public void behave() {
         switch (direction) {
             case "left": x -= 1; break;
@@ -37,5 +37,5 @@ public class PlayerHuman extends Player {
             state = "dead";
         else
             map.drawOnMap(x, y, id);
-    }
+    }*/
 }

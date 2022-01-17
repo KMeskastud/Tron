@@ -21,7 +21,21 @@ public abstract class Player
         map.drawOnMap(xStart, yStart, id);
     }
 
-    public abstract void behave();
+    public void behave()
+    {
+        {
+            switch (direction) {
+                case "left": x -= 1; break;
+                case "right": x += 1; break;
+                case "up": y -= 1; break;
+                case "down": y += 1; break;
+            }
+            if(map.getElement(x, y) != 0)
+                state = "dead";
+            else
+                map.drawOnMap(x, y, id);
+        }
+    }
 
     public int getX() {
         return x;
