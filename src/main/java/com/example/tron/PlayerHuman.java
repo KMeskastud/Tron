@@ -24,18 +24,4 @@ public class PlayerHuman extends Player {
         else if (n == down && direction != "up")
             direction = "down";
     }
-
-    /* @Override
-    public void behave() {
-        switch (direction) {
-            case "left": x -= 1; break;
-            case "right": x += 1; break;
-            case "up": y -= 1; break;
-            case "down": y += 1; break;
-        }
-        if(map.getElement(x, y) != 0)
-            state = "dead";
-        else
-            map.drawOnMap(x, y, id);
-    }*/
 }
