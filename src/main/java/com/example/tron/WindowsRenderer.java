@@ -1,6 +1,5 @@
 package com.example.tron;
 
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
@@ -32,7 +31,6 @@ public class WindowsRenderer {
         for (int y=0; y<map.getHeight(); y++) {
             for (int x=0; x<map.getWidth(); x++) {
                 int element = map.getElement(x, y);
-
                 if (element == 1)
                     drawWall(g, x, y);
                 else

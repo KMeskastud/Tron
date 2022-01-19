@@ -9,32 +9,27 @@ public abstract class Player
     protected String state;
     protected Map map;
 
-    public Player(int xStart, int yStart, String direction, int id, Map map)
-    {
+    public Player(int xStart, int yStart, String direction, int id, Map map) {
         this.x = xStart;
         this.y = yStart;
         this.id = id;
         this.direction = direction;
         this.state = "alive";
         this.map = map;
-
         map.drawOnMap(xStart, yStart, id);
     }
 
-    public void behave()
-    {
-        {
-            switch (direction) {
-                case "left": x -= 1; break;
-                case "right": x += 1; break;
-                case "up": y -= 1; break;
-                case "down": y += 1; break;
-            }
-            if(map.getElement(x, y) != 0)
-                state = "dead";
-            else
-                map.drawOnMap(x, y, id);
+    public void behave() {
+        switch (direction) {
+            case "left": x -= 1; break;
+            case "right": x += 1; break;
+            case "up": y -= 1; break;
+            case "down": y += 1; break;
         }
+        if(map.getElement(x, y) != 0)
+            state = "dead";
+        else
+            map.drawOnMap(x, y, id);
     }
 
     public int getX() {

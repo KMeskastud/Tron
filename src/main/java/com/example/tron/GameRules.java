@@ -5,6 +5,7 @@ import java.util.List;
 public class GameRules {
     private List<Player> players;
     private Map map;
+    private int gameSpeed;
 
     public GameRules(Map map, List<Player> players) {
         this.map = map;
@@ -18,16 +19,22 @@ public class GameRules {
     }
 
     void playerMovement() {
-
         for (Player player: players)
             player.behave();
     }
 
-    int didSomeoneDie()
-    {
+    int didSomeoneDie() {
         for (Player player: players)
             if (player.getState() == "dead")
                 return player.getId();
         return 0;
+    }
+
+    public int getGameSpeed() {
+        return gameSpeed;
+    }
+
+    public void setGameSpeed(int gameSpeed) {
+        this.gameSpeed = gameSpeed;
     }
 }

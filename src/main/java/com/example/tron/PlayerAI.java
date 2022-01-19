@@ -76,7 +76,6 @@ public class PlayerAI extends Player {
             dist = downDistance();
             dir = "down";
         }
-        System.out.println(upperDistance());
         direction = dir;
     }
 }

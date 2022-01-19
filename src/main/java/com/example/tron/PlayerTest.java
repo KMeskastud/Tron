@@ -13,7 +13,7 @@ class PlayerTest {
     }
 
     @org.junit.jupiter.api.Test
-    void PlayerHuman_StepOnFreeTile_IsAlive {
+    void PlayerHuman_StepOnFreeTile_IsAlive() {
         Map map = new Map();
         PlayerHuman pl = new PlayerHuman(1, 1, "right", "xxxx", 2, map);
         pl.behave();

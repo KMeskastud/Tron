@@ -14,8 +14,6 @@ import javax.swing.SwingUtilities;
 
 public class WindowsMain  extends JFrame implements KeyListener{
     private static final long serialVersionUID = 1L;
-    //private List<PlayerHuman> humans = new ArrayList<>();
-    //private List<PlayerAI> bots = new ArrayList<>();
     private List<Player> players = new ArrayList<>();
     private Map map = new Map();
     private GameRules rules = new GameRules(map, players);
@@ -36,9 +34,10 @@ public class WindowsMain  extends JFrame implements KeyListener{
 
     void initGame()
     {
-        Thread game = new Thread("New Thread") {
+        Thread game = new Thread("Game thread") {
             public void run(){
                 state = "starting";
+                rules.setGameSpeed(150);
                 rules.addPlayers();
                 repaint();
                 try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
@@ -49,9 +48,7 @@ public class WindowsMain  extends JFrame implements KeyListener{
                     repaint();
                     if(rules.didSomeoneDie() != 0)
                         state = "over";
-                    try {
-                        Thread.sleep(200);//reik pridet kintama gamespeed
-                    } catch (InterruptedException e) {e.printStackTrace();}
+                    try {Thread.sleep(rules.getGameSpeed());} catch (InterruptedException e) {e.printStackTrace();}
                 }
                 repaint();
             }
@@ -61,17 +58,14 @@ public class WindowsMain  extends JFrame implements KeyListener{
 
     @Override
     public void paint(Graphics g) {
-        if(state == "starting")
-        {
+        if(state == "starting") {
             super.paint(g);
             renderer.paint(g);
         }
-        if(state == "running")
-        {
+        if(state == "running") {
             renderer.updatePlayer(g);
         }
-        if(state == "over")
-        {
+        if(state == "over") {
             renderer.endScreen(g);
         }
     }
